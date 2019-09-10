@@ -6,7 +6,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 import MenuIcon from '@material-ui/icons/Menu';
 
-import Appbar_styles from "./appbar_styles";
+import AppbarStyles from "./appbarStyles";
 
 const Appbar = (props) => {
     const { classes, handleDrawerToggle, navDrawerOpen } = props;
@@ -26,4 +26,4 @@ const Appbar = (props) => {
     );
 };
 
-export default withStyles(Appbar_styles)(Appbar);
+export default withStyles(AppbarStyles)(Appbar);

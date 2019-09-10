@@ -1,6 +1,6 @@
-import OrdersComponent from '../views/orders/orders';
 import HomeComponent from '../views/home/home';
-import CustomersComponent from '../views/customers/customers';
+import OrdersContainer from '../containers/ordersContainer';
+import CustomersContainer from '../containers/customersContainer';
 import MenusComponent from '../views/menus/menus';
 
 import HomeIcon from '@material-ui/icons/Home';
@@ -19,13 +19,13 @@ const appRoutes = [
         path: '/app/customers',
         icon: CustomerIcon,
         sidebarName: 'Customers',
-        component: CustomersComponent
+        component: CustomersContainer
     },
     {
         path: '/app/orders',
         icon: OrderIcon,
         sidebarName: 'Orders',
-        component: OrdersComponent
+        component: OrdersContainer
     },
     {
         path: '/app/menus',

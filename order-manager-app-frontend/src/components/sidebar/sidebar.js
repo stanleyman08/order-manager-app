@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 
-import Sidebar_styles from './sidebar_styles';
+import SidebarStyles from './sidebarStyles';
 
 //@material-ui/core
 import Drawer from '@material-ui/core/Drawer';
@@ -50,4 +50,4 @@ const Sidebar = (props) => {
         </Drawer>
     );
 };
-export default withStyles(Sidebar_styles)(Sidebar);
+export default withStyles(SidebarStyles)(Sidebar);

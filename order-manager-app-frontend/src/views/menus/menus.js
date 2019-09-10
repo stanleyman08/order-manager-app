@@ -6,7 +6,7 @@ import CardBody from "../../components/Card/CardBody";
 import CardFooter from "../../components/Card/CardFooter";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-import Menus_styles from "./menus_styles";
+import Menus_styles from "./menusStyles";
 
 class Menus extends React.Component {
     render() {

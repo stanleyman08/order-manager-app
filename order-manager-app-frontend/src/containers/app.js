@@ -10,7 +10,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Appbar from "../components/appbar/appbar";
 import Sidebar from "../components/sidebar/sidebar";
 
-import App_styles from "./app_styles";
+import AppStyles from "./appStyles";
 
 const switchRoutes = (
     <Switch>
@@ -64,4 +64,4 @@ class App extends React.Component {
     }
 }
 
-export default withStyles(App_styles)(App);
+export default withStyles(AppStyles)(App);

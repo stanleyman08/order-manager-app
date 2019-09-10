@@ -1,6 +1,6 @@
 const DRAWER_WIDTH = 240;
 
-const Appbar_styles = (theme) => ({
+const AppbarStyles = (theme) => ({
     appBar: {
         zIndex: theme.zIndex.drawer + 1,
         transition: theme.transitions.create(['width', 'margin'], {
@@ -24,4 +24,4 @@ const Appbar_styles = (theme) => ({
     }
 });
 
-export default Appbar_styles;
+export default AppbarStyles;

@@ -1,6 +1,6 @@
 const DRAWER_WIDTH = 240;
 
-const Sidebar_styles = (theme) => ({
+const SidebarStyles = (theme) => ({
     drawer: {
         width: DRAWER_WIDTH,
         flexShrink: 0,
@@ -37,4 +37,4 @@ const Sidebar_styles = (theme) => ({
     }
 });
 
-export default Sidebar_styles;
+export default SidebarStyles;

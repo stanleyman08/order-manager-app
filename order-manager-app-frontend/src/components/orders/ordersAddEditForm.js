@@ -8,14 +8,12 @@ import DialogActions from "@material-ui/core/DialogActions";
 import TextField from "@material-ui/core/TextField";
 
 
-//Todo: CustomersAddEditForm
-class CustomersAddEditForm extends React.Component {
+//Todo: OrdersAddEditForm
+class OrdersAddEditForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            customerName: '',
-            customerEmail: '',
-            customerPhone: ''
+            customerName: ''
         }
     }
 
@@ -25,14 +23,14 @@ class CustomersAddEditForm extends React.Component {
 
     render() {
         const { isOpenAddEditForm, toggleAddEditForm } = this.props;
-        const { name, email, phone } = this.state;
+        const { name } = this.state;
         return (
             <Dialog
                 open={isOpenAddEditForm}
                 onClose={toggleAddEditForm}
                 aria-labelledby="form-dialog-title"
             >
-                <DialogTitle id="form-dialog-title">Add Customer</DialogTitle>
+                <DialogTitle id="form-dialog-title">Add Order</DialogTitle>
                 <DialogContent>
                     <TextField
                         autoFocus
@@ -41,28 +39,6 @@ class CustomersAddEditForm extends React.Component {
                         value={name}
                         onChange={this.handleChange}
                         label="Customer Name"
-                        type="text"
-                        fullWidth
-                        required
-                    />
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="customerEmail"
-                        value={email}
-                        onChange={this.handleChange}
-                        label="Customer Email"
-                        type="text"
-                        fullWidth
-                        required
-                    />
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="customerPhone"
-                        value={phone}
-                        onChange={this.handleChange}
-                        label="Customer Phone"
                         type="text"
                         fullWidth
                         required
@@ -79,4 +55,4 @@ class CustomersAddEditForm extends React.Component {
     }
 };
 
-export default CustomersAddEditForm
+export default OrdersAddEditForm

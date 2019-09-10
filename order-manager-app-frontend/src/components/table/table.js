@@ -17,7 +17,7 @@ import Add from '@material-ui/icons/Add';
 // import withStyles from "@material-ui/core/styles/withStyles";
 
 const Table = (props) => {
-    const { dataSource } = props;
+    const { dataSource, isOpenAddEditForm, toggleAddEditForm } = props;
     return (
         <MaterialTable
             columns={[{title: 'Name', field: 'Name'}]}
@@ -47,7 +47,7 @@ const Table = (props) => {
                     icon: Add,
                     tooltip: 'Add Customer',
                     isFreeAction: true,
-                    onClick: (event) => alert("Add new customer!") //todo: add new customer with api
+                    onClick: (event) => toggleAddEditForm(isOpenAddEditForm)
                 }
             ]}
             icons={{

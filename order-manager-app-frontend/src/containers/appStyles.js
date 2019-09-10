@@ -1,4 +1,4 @@
-const App_styles = (theme) => ({
+const AppStyles = (theme) => ({
     root: {
         display: 'flex',
     },
@@ -15,4 +15,4 @@ const App_styles = (theme) => ({
     }
 });
 
-export default App_styles;
+export default AppStyles;

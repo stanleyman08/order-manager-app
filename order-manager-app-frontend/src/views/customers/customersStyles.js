@@ -1,4 +1,4 @@
-const Customers_styles = {
+const CustomersStyles = {
     cardCategoryWhite: {
         color: 'rgba(255,255,255,.62)',
         margin: '0',
@@ -17,4 +17,4 @@ const Customers_styles = {
     }
 };
 
-export default Customers_styles
+export default CustomersStyles

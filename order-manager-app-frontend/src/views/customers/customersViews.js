@@ -6,7 +6,7 @@ import Card from "../../components/Card/Card";
 import CardHeader from "../../components/Card/CardHeader";
 import CardBody from "../../components/Card/CardBody";
 import withStyles from "@material-ui/core/styles/withStyles";
-import Customers_styles from "./customers_styles";
+import CustomersStyles from "./customersStyles";
 
 // Components
 import Table from '../../components/table/table';
@@ -19,17 +19,17 @@ const customerData = [
     {Name: 'Grenfell elementary'}
     ];
 
-class Customers extends React.Component {
+class CustomersViews extends React.Component {
     render() {
-        const { classes } = this.props;
+        const { classes, isOpenAddEditForm, toggleAddEditForm } = this.props;
         return (
             <Card>
                 <CardHeader color="primary">
                     <h4 className={classes.cardTitleWhite}> Customers </h4>
                 </CardHeader>
                 <CardBody>
-                    <Table dataSource={customerData} />
-                    <CustomersAddEditForm />
+                    <Table dataSource={customerData} toggleAddEditForm={toggleAddEditForm} isOpenAddEditForm={isOpenAddEditForm} />
+                    <CustomersAddEditForm isOpenAddEditForm={isOpenAddEditForm} toggleAddEditForm={toggleAddEditForm} />
                 </CardBody>
                 <CardFooter>
 
@@ -39,4 +39,4 @@ class Customers extends React.Component {
     }
 }
 
-export default withStyles(Customers_styles)(Customers)
+export default withStyles(CustomersStyles)(CustomersViews)
