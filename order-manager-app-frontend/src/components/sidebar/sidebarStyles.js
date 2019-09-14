@@ -34,6 +34,9 @@ const SidebarStyles = (theme) => ({
     },
     listItemText: {
         color: 'black'
+    },
+    listItemNested: {
+        paddingLeft: theme.spacing(7)
     }
 });
 

@@ -1,12 +1,14 @@
 import HomeComponent from '../views/home/home';
 import OrdersContainer from '../containers/ordersContainer';
 import CustomersContainer from '../containers/customersContainer';
-import MenusComponent from '../views/menus/menus';
+import WeeklyMenusComponent from '../views/menus/weeklyMenusViews';
+import FoodsComponent from '../views/foods/foodsViews';
 
 import HomeIcon from '@material-ui/icons/Home';
 import CustomerIcon from '@material-ui/icons/People';
 import OrderIcon from '@material-ui/icons/Work';
-import MenuIcon from '@material-ui/icons/RestaurantMenu';
+import FoodsIcon from '@material-ui/icons/RestaurantMenu';
+import MenuBookIcon from '@material-ui/icons/MenuBook';
 
 const appRoutes = [
     {
@@ -28,12 +30,18 @@ const appRoutes = [
         component: OrdersContainer
     },
     {
-        path: '/app/menus',
-        icon: MenuIcon,
-        sidebarName: 'Menus',
-        component: MenusComponent
+        path: '/app/weeklymenus',
+        icon: MenuBookIcon,
+        sidebarName: 'Weekly Menus',
+        component: WeeklyMenusComponent
     },
-    { redirect: true, path: '/', to: '/app/home', navbarName: 'Redirect' }
+    {
+        path: '/app/foods',
+        icon: FoodsIcon,
+        sidebarName: 'Foods',
+        component: FoodsComponent
+    },
+    { redirect: true, path: '/', to: '/app/home', sidebarName: 'Redirect' }
 ];
 
 export default appRoutes;

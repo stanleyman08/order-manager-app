@@ -1,4 +1,4 @@
-const Home_styles = {
+const FoodStyles = {
     cardCategoryWhite: {
         color: 'rgba(255,255,255,.62)',
         margin: '0',
@@ -17,4 +17,4 @@ const Home_styles = {
     }
 };
 
-export default Home_styles
+export default FoodStyles

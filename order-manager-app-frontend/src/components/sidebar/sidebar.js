@@ -12,22 +12,27 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import withStyles from '@material-ui/core/styles/withStyles';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';;
 
 const Sidebar = (props) => {
     const { classes, appRoutes, navDrawerOpen, handleDrawerToggle } = props;
     const navLinks = (
         <List>
             {appRoutes.map((route, index) => {
-                if (route.redirect) return null;
-                return (
-                    <NavLink to={route.path} key={index}>
-                        <ListItem button key={index}>
-                            <ListItemIcon> <route.icon /> </ListItemIcon>
-                            <ListItemText className={classes.listItemText} primary={route.sidebarName}/>
-                        </ListItem>
-                    </NavLink>
-                )
+                if (route.redirect) {
+                    return null;
+                } else {
+                    return (
+                        <NavLink to={route.path} key={index}>
+                            <ListItem button key={index}>
+                                <ListItemIcon>
+                                    <route.icon/>
+                                </ListItemIcon>
+                                <ListItemText className={classes.listItemText} primary={route.sidebarName}/>
+                            </ListItem>
+                        </NavLink>
+                    )
+                }
             })}
         </List>
     );

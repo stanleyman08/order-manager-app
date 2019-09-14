@@ -6,15 +6,15 @@ import CardBody from "../../components/Card/CardBody";
 import CardFooter from "../../components/Card/CardFooter";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-import Menus_styles from "./menusStyles";
+import FoodsStyles from "./foodsStyles";
 
-class Menus extends React.Component {
+class FoodsViews extends React.Component {
     render() {
         const { classes } = this.props;
         return (
             <Card>
                 <CardHeader color="primary">
-                    <h4 className={classes.cardTitleWhite}> Menus </h4>
+                    <h4 className={classes.cardTitleWhite}> Foods </h4>
                 </CardHeader>
                 <CardBody>
 
@@ -27,4 +27,4 @@ class Menus extends React.Component {
     }
 }
 
-export default withStyles(Menus_styles)(Menus)
+export default withStyles(FoodsStyles)(FoodsViews)
