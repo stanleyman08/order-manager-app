@@ -4,11 +4,13 @@ import { connectRouter } from 'connected-react-router';
 
 import { CustomersReducer } from './customersReducer';
 import { OrdersReducer } from './ordersReducer';
+import { FoodsReducer} from "./foodsReducer";
 
 export default function createRootReducer(history: History) {
     return combineReducers({
         router: connectRouter(history),
         CustomersReducer,
-        OrdersReducer
+        OrdersReducer,
+        FoodsReducer
     });
 }

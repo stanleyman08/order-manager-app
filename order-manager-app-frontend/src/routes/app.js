@@ -2,7 +2,7 @@ import HomeComponent from '../views/home/home';
 import OrdersContainer from '../containers/ordersContainer';
 import CustomersContainer from '../containers/customersContainer';
 import WeeklyMenusComponent from '../views/menus/weeklyMenusViews';
-import FoodsComponent from '../views/foods/foodsViews';
+import FoodsContainer from '../containers/foodsContainer';
 
 import HomeIcon from '@material-ui/icons/Home';
 import CustomerIcon from '@material-ui/icons/People';
@@ -39,7 +39,7 @@ const appRoutes = [
         path: '/app/foods',
         icon: FoodsIcon,
         sidebarName: 'Foods',
-        component: FoodsComponent
+        component: FoodsContainer
     },
     { redirect: true, path: '/', to: '/app/home', sidebarName: 'Redirect' }
 ];

@@ -17,11 +17,16 @@ import Add from '@material-ui/icons/Add';
 import SortArrow from '@material-ui/icons/ArrowUpward';
 // import withStyles from "@material-ui/core/styles/withStyles";
 
-const Table = (props) => {
+const FoodsDataTable = (props) => {
     const { dataSource, isOpenAddEditForm, toggleAddEditForm } = props;
     return (
         <MaterialTable
-            columns={[{title: 'Name', field: 'Name'}]}
+            columns={[
+                {title: 'Photo', field: 'imageUrl', render: rowData => <img src={rowData.imageUrl} alt={'imageUrl'} />},
+                {title: 'Dish Name', field: 'dishName'},
+                {title: 'Price(S)', field: 'priceSmall', cellStyle: {width: 20, maxWidth: 20}},
+                {title: 'Price(M)', field: 'priceMedium', cellStyle: {width: 20, maxWidth: 20}},
+                {title: 'Price(L)', field: 'priceLarge', cellStyle: {width: 20, maxWidth: 20}}]}
             data={dataSource}
             options={{
                 showTitle: false,
@@ -46,7 +51,7 @@ const Table = (props) => {
             actions={[
                 {
                     icon: Add,
-                    tooltip: 'Add Customer',
+                    tooltip: 'Add Food',
                     isFreeAction: true,
                     onClick: (event) => toggleAddEditForm(isOpenAddEditForm)
                 }
@@ -69,8 +74,8 @@ const Table = (props) => {
     )
 };
 
-Table.propTypes = {
+FoodsDataTable.propTypes = {
     dataSource: PropTypes.arrayOf(Object).isRequired
 };
 
-export default Table
+export default FoodsDataTable

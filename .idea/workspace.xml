@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24bc64f3-9ce7-4735-a14e-20b6e1d7ef39" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/order-manager-app-server/models/food.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-manager-app-server/routes/api/foods.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-manager-app-server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager-app-server/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-manager-app-server/config/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager-app-server/config/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-manager-app-server/config/default.json" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager-app-server/config/default.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-manager-app-server/models/Book.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-manager-app-server/routes/api/books.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,13 +41,15 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/order-manager-app-frontend/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/order-manager-app-frontend/src/views/foods" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/order-manager-app-frontend/src/views/foods" />
       <recent name="$PROJECT_DIR$/order-manager-app-frontend/src/components" />
       <recent name="$PROJECT_DIR$/order-manager-app-frontend/src" />
     </key>
@@ -85,7 +94,8 @@
       <option name="presentableId" value="Default" />
       <updated>1567823116532</updated>
       <workItem from="1567823118467" duration="29000" />
-      <workItem from="1567823168959" duration="40716000" />
+      <workItem from="1567823168959" duration="52299000" />
+      <workItem from="1568429800161" duration="14126000" />
     </task>
     <servers />
   </component>
@@ -110,8 +120,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/order-manager-app-frontend/src/index.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/order-manager-app-frontend/src/components/sidebar/sidebar.js</url>
+          <line>6</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
