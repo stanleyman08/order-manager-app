@@ -1,7 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-// const connectDB = require('./config/db');
 import {connectDB} from './config/db';
 
 // routes

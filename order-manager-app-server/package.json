@@ -7,7 +7,7 @@
     "build": "babel --presets es2015 -d lib/ src",
     "start-dev": "export NODE_ENV=dev && nodemon --exec babel-node src/index.js",
     "start-test": "export NODE_ENV=test && nodemon --exec babel-node src/index.js",
-    "test": "export NODE_ENV=test && jest"
+    "test": "export NODE_ENV=test && jest --coverage"
   },
   "author": "",
   "license": "ISC",

@@ -5,37 +5,69 @@ const router = express.Router();
 // Load Food model
 import Food from '../../models/food';
 
-// Http Response wrapper
-// const SimpleHttpResponse = require('../../commons/simpleHttpResponse');
+// Constants
+import {STATUS_SUCCESS, STATUS_FAIL} from '../../commons/constants';
 
 // @route GET api/foods
 // @description Get all foods
 // @access Public
 router.get('/', (req, res) => {
-    // const simpleHttpResponse = new SimpleHttpResponse();
     Food.find()
         .then(foods => {
-            // simpleHttpResponse.status = "SUCCESS";
-            // simpleHttpResponse.data = foods;
-            // res.json(simpleHttpResponse);
-            res.json(foods);
+            res.status(200).json({
+                status: STATUS_SUCCESS,
+                data: foods,
+                msg: null,
+                error: null
+            });
         })
-        .catch(err => res.status(404).json({ error: err }));
+        .catch(err => res.status(404).json({
+            status: STATUS_FAIL,
+            data: null,
+            msg: null,
+            error: err
+        }));
 });
 
 // @route POST api/foods
 // @description add/save book
 // @access Public
 router.post('/', [
-    check('dishName').exists()
+    check('dishName')
+        .exists()
+        .not().isEmpty(),
+    check('priceSmall')
+        .optional()
+        .isNumeric(),
+    check('priceMedium')
+        .optional()
+        .isNumeric(),
+    check('priceLarge')
+        .optional()
+        .isNumeric()
 ], (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.status(422).json(errors.array());
+        return res.status(422).json({
+            status: STATUS_FAIL,
+            data: null,
+            msg: null,
+            error: errors.array()
+        });
     } else {
         Food.create(req.body)
-            .then(food => res.status(201).json({msg: 'Food added successfully'}))
-            .catch(err => res.status(400).json({errors: err}));
+            .then(food => res.status(201).json({
+                status: STATUS_SUCCESS,
+                data: food,
+                msg: null,
+                error: null
+            }))
+            .catch(err => res.status(400).json({
+                status: STATUS_FAIL,
+                data: null,
+                msg: null,
+                error: err
+            }));
     }
 });
 
@@ -44,26 +76,79 @@ router.post('/', [
 // @access Public
 router.get('/:id', (req, res) => {
     Food.findById(req.params.id)
-        .then(food => res.json(food))
-        .catch(err => res.status(404).json({ errors: err }));
+        .then(food => res.status(200).json({
+            status: STATUS_SUCCESS,
+            data: food,
+            msg: null,
+            error: null
+        }))
+        .catch(err => res.status(400).json({
+            status: STATUS_FAIL,
+            data: null,
+            msg: null,
+            error: err
+        }));
 });
 
-// @route GET api/books/:id
-// @description Update book
+// @route PUT api/books/:id
+// @description Update food
 // @access Public
-router.put('/:id', (req, res) => {
-    Food.findByIdAndUpdate(req.params.id, req.body)
-        .then(food => res.json({msg: 'Updated successfully'}))
-        .catch(err => res.status(400).json({errors: err}));
+router.put('/:id',[
+    check('dishName')
+        .exists()
+        .not().isEmpty(),
+    check('priceSmall')
+        .optional()
+        .isNumeric(),
+    check('priceMedium')
+        .optional()
+        .isNumeric(),
+    check('priceLarge')
+        .optional()
+        .isNumeric()
+], (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(422).json({
+            status: STATUS_FAIL,
+            data: null,
+            msg: null,
+            error: errors.array()
+        });
+    } else {
+        Food.findByIdAndUpdate(req.params.id, req.body, {new: true, useFindAndModify: false})
+            .then(food => res.status(200).json({
+                status: STATUS_SUCCESS,
+                data: food,
+                msg: null,
+                error: null
+            }))
+            .catch(err => res.status(400).json({
+                status: STATUS_FAIL,
+                data: null,
+                msg: null,
+                error: err
+            }));
+    }
 });
 
-// @route GET api/books/:id
+// @route DELETE api/books/:id
 // @description Delete book by id
 // @access Public
 router.delete('/:id', (req, res) => {
     Food.findByIdAndRemove(req.params.id, req.body)
-        .then(food => res.json({ mgs: 'Book entry deleted successfully' }))
-        .catch(err => res.status(404).json({ errors: err }));
+        .then(food => res.status(200).json({
+            status: STATUS_SUCCESS,
+            data: food,
+            msg: null,
+            error: null
+        }))
+        .catch(err => res.status(404).json({
+            status: STATUS_FAIL,
+            data: null,
+            msg: null,
+            error: err
+        }));
 });
 
 export default router;
