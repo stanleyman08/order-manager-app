@@ -5,6 +5,7 @@ import {connectDB} from './config/db';
 
 // routes
 import foods from './routes/api/foods';
+import customers from './routes/api/customers';
 
 const app = express();
 
@@ -29,5 +30,6 @@ app.use(express.json({ extended: false }));
 
 // use Routes
 app.use('/api/foods', foods);
+app.use('/api/customers', customers);
 
 export default app;

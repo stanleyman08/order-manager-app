@@ -82,7 +82,7 @@ describe('POST /api/foods/', () => {
 
    it('should fail when passing dishName as null', async () => {
        const res = await request(app)
-           .post('/api/foods')
+           .post('/api/foods/')
            .send({"dishName": null});
        expect(res.statusCode).toEqual(422);
        expect(res.body.status).toEqual(STATUS_FAIL);
@@ -90,7 +90,7 @@ describe('POST /api/foods/', () => {
 
    it('should fail when passing nothing', async () => {
       const res = await request(app)
-          .post('/api/foods')
+          .post('/api/foods/')
           .send({});
       expect(res.statusCode).toEqual(422);
       expect(res.body.status).toEqual(STATUS_FAIL);
@@ -98,19 +98,19 @@ describe('POST /api/foods/', () => {
 
    it('should fail when passing string to price', async () => {
       let res = await request(app)
-          .post('/api/foods')
+          .post('/api/foods/')
           .send({"dishName": "test dish", "priceSmall": "abc"});
       expect(res.statusCode).toEqual(422);
       expect(res.body.status).toEqual(STATUS_FAIL);
 
       res = await request(app)
-          .post('/api/foods')
+          .post('/api/foods/')
           .send({"dishName": "test dish", "priceMedium": "abc"});
        expect(res.statusCode).toEqual(422);
        expect(res.body.status).toEqual(STATUS_FAIL);
 
        res = await request(app)
-           .post('/api/foods')
+           .post('/api/foods/')
            .send({"dishName": "test dish", "priceLarge": "abc"});
        expect(res.statusCode).toEqual(422);
        expect(res.body.status).toEqual(STATUS_FAIL);
@@ -120,7 +120,7 @@ describe('POST /api/foods/', () => {
 describe('GET /api/foods/:id', () => {
     it('should return food by id', async () => {
         const res = await request(app)
-            .post('/api/foods')
+            .post('/api/foods/')
             .send({"dishName": "test dish"});
         expect(res.statusCode).toEqual(201);
 
@@ -146,7 +146,7 @@ describe('GET /api/foods/:id', () => {
 describe('PUT /api/foods/:id', () => {
    it('should update food successfully', async () => {
        const res = await request(app)
-           .post('/api/foods')
+           .post('/api/foods/')
            .send({"dishName": "test dish"});
        expect(res.statusCode).toEqual(201);
 
@@ -164,7 +164,7 @@ describe('PUT /api/foods/:id', () => {
 
    it('should not update when food not found', async () => {
        const res = await request(app)
-           .post('/api/foods')
+           .post('/api/foods/')
            .send({"dishName": "test dish"});
        expect(res.statusCode).toEqual(201);
 
@@ -179,7 +179,7 @@ describe('PUT /api/foods/:id', () => {
 
    it('should fail when passing dishName as ""', async () => {
        const res = await request(app)
-           .post('/api/foods')
+           .post('/api/foods/')
            .send({"dishName": "test dish"});
        expect(res.statusCode).toEqual(201);
 
@@ -193,7 +193,7 @@ describe('PUT /api/foods/:id', () => {
 
    it('should fail when passing dishName as null', async () => {
        const res = await request(app)
-           .post('/api/foods')
+           .post('/api/foods/')
            .send({"dishName": "test dish"});
        expect(res.statusCode).toEqual(201);
 
@@ -207,7 +207,7 @@ describe('PUT /api/foods/:id', () => {
 
    it('should fail when passing nothing', async () => {
        const res = await request(app)
-           .post('/api/foods')
+           .post('/api/foods/')
            .send({"dishName": "test dish"});
        expect(res.statusCode).toEqual(201);
 
@@ -221,7 +221,7 @@ describe('PUT /api/foods/:id', () => {
 
    it('should fail when passing string to price', async () => {
        const res = await request(app)
-           .post('/api/foods')
+           .post('/api/foods/')
            .send({"dishName": "test dish"});
        expect(res.statusCode).toEqual(201);
 
@@ -237,7 +237,7 @@ describe('PUT /api/foods/:id', () => {
 describe('DELETE /api/foods/:id', () => {
    it('should delete food successfully', async () => {
        const res = await request(app)
-           .post('/api/foods')
+           .post('/api/foods/')
            .send({"dishName": "test dish"});
        expect(res.statusCode).toEqual(201);
 
@@ -251,11 +251,11 @@ describe('DELETE /api/foods/:id', () => {
 
    it('should not delete when id not found', async () => {
        const res = await request(app)
-           .post('/api/foods')
+           .post('/api/foods/')
            .send({"dishName": "test dish"});
        expect(res.statusCode).toEqual(201);
 
-       const foodId = "123"
+       const foodId = "123";
        const res2 = await request(app)
            .del('/api/foods/' + foodId);
        expect(res2.statusCode).toEqual(404);

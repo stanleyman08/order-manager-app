@@ -7,7 +7,8 @@ export const connectDB = async () => {
     await mongoose.connect(
         MONGO_URL,
       {
-        useNewUrlParser: true
+        useNewUrlParser: true,
+        useFindAndModify: false
       }
     );
 

@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
 });
 
 // @route POST api/foods
-// @description add/save book
+// @description create foods
 // @access Public
 router.post('/', [
     check('dishName')
@@ -90,7 +90,7 @@ router.get('/:id', (req, res) => {
         }));
 });
 
-// @route PUT api/books/:id
+// @route PUT api/foods/:id
 // @description Update food
 // @access Public
 router.put('/:id',[
@@ -132,8 +132,8 @@ router.put('/:id',[
     }
 });
 
-// @route DELETE api/books/:id
-// @description Delete book by id
+// @route DELETE api/foods/:id
+// @description Delete food by id
 // @access Public
 router.delete('/:id', (req, res) => {
     Food.findByIdAndRemove(req.params.id, req.body)
