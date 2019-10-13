@@ -1,8 +1,8 @@
 import HomeComponent from '../views/home/home';
 import OrdersContainer from '../containers/ordersContainer';
 import CustomersContainer from '../containers/customersContainer';
-import WeeklyMenusComponent from '../views/menus/weeklyMenusViews';
 import FoodsContainer from '../containers/foodsContainer';
+import WeeklyMenusContainer from '../containers/weeklyMenusContainer';
 
 import HomeIcon from '@material-ui/icons/Home';
 import CustomerIcon from '@material-ui/icons/People';
@@ -33,7 +33,7 @@ const appRoutes = [
         path: '/app/weeklymenus',
         icon: MenuBookIcon,
         sidebarName: 'Weekly Menus',
-        component: WeeklyMenusComponent
+        component: WeeklyMenusContainer
     },
     {
         path: '/app/foods',
