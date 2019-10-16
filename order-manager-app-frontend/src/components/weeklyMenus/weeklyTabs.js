@@ -34,10 +34,9 @@ class WeeklyTabs extends React.Component {
     toggleAddEditForm = () => {
         const {toggleAddEditForm, isOpenAddEditForm } = this.props;
         toggleAddEditForm(isOpenAddEditForm);
-    }
+    };
 
     render () {
-        // const { toggleAddEditForm, isOpenAddEditForm } = this.props;
         const { currentTabIndex } = this.state;
         return (
             <Paper >
@@ -49,9 +48,9 @@ class WeeklyTabs extends React.Component {
                     <Tab label="Thursday" {...this.a11yProps(4)} />
                     <Tab label="Friday" {...this.a11yProps(5)} />
                     <Tab label="Saturday" {...this.a11yProps(6)} />
-                    <IconButton onClick={this.toggleAddEditForm}>
-                        <AddIcon/>
-                    </IconButton>
+                    {/*<IconButton onClick={this.toggleAddEditForm}>*/}
+                    {/*    <AddIcon/>*/}
+                    {/*</IconButton>*/}
                 </Tabs>
                 <TabPanel>
                     Item one
