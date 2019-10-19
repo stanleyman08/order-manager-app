@@ -9,7 +9,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import OrdersStyles from "./ordersStyles";
 
 // components
-import Table from '../../components/table/table';
+import CustomersDataTable from '../../components/customers/customersDataTable';
 import OrdersAddEditForm from "../../components/orders/ordersAddEditForm";
 
 const orderData = [
@@ -26,7 +26,7 @@ class OrdersViews extends React.Component {
                     <h4 className={classes.cardTitleWhite}> Orders </h4>
                 </CardHeader>
                 <CardBody>
-                    <Table dataSource={orderData} toggleAddEditForm={toggleAddEditForm} isOpenAddEditForm={isOpenAddEditForm} />
+                    <CustomersDataTable dataSource={orderData} toggleAddEditForm={toggleAddEditForm} isOpenAddEditForm={isOpenAddEditForm} />
                     <OrdersAddEditForm toggleAddEditForm={toggleAddEditForm} isOpenAddEditForm={isOpenAddEditForm} />
                 </CardBody>
                 <CardFooter>

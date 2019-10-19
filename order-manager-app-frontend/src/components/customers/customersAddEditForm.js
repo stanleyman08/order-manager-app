@@ -6,6 +6,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 
 //Todo: CustomersAddEditForm
@@ -13,14 +14,22 @@ class CustomersAddEditForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            customerName: '',
-            customerEmail: '',
-            customerPhone: ''
+            name: '',
+            email: '',
+            phone: ''
         }
     }
 
     handleChange = e => {
-        this.setState({[e.target.name]: e.target.value });
+        this.setState({[e.target.id]: e.target.value });
+    };
+
+    handleCreateCustomer = e => {
+        const { createCustomer, toggleAddEditForm, isOpenAddEditForm } = this.props;
+        const { name, email, phone } = this.state;
+        console.log("Creating customer...");
+        createCustomer({name, email, phone});
+        toggleAddEditForm(isOpenAddEditForm);
     };
 
     render() {
@@ -37,7 +46,7 @@ class CustomersAddEditForm extends React.Component {
                     <TextField
                         autoFocus
                         margin="dense"
-                        id="customerName"
+                        id="name"
                         value={name}
                         onChange={this.handleChange}
                         label="Customer Name"
@@ -48,7 +57,7 @@ class CustomersAddEditForm extends React.Component {
                     <TextField
                         autoFocus
                         margin="dense"
-                        id="customerEmail"
+                        id="email"
                         value={email}
                         onChange={this.handleChange}
                         label="Customer Email"
@@ -59,7 +68,7 @@ class CustomersAddEditForm extends React.Component {
                     <TextField
                         autoFocus
                         margin="dense"
-                        id="customerPhone"
+                        id="phone"
                         value={phone}
                         onChange={this.handleChange}
                         label="Customer Phone"
@@ -69,10 +78,10 @@ class CustomersAddEditForm extends React.Component {
                     />
                 </DialogContent>
                 <DialogActions>
-                    {/*<Button onClick={this.handleCancel}>Cancel</Button>*/}
-                    {/*<Button onClick={this.handleAdd} color="primary">*/}
-                    {/*    Add*/}
-                    {/*</Button>*/}
+                    <Button onClick={toggleAddEditForm}>Cancel</Button>
+                    <Button onClick={this.handleCreateCustomer} color="primary">
+                        Add
+                    </Button>
                 </DialogActions>
             </Dialog>
         )

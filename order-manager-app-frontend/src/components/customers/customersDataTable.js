@@ -17,11 +17,15 @@ import Add from '@material-ui/icons/Add';
 import SortArrow from '@material-ui/icons/ArrowUpward';
 // import withStyles from "@material-ui/core/styles/withStyles";
 
-const Table = (props) => {
-    const { dataSource, isOpenAddEditForm, toggleAddEditForm } = props;
+const CustomersDataTable = (props) => {
+    const { dataSource, isOpenAddEditForm, toggleAddEditForm, deleteCustomer, updateCustomer,  } = props;
     return (
         <MaterialTable
-            columns={[{title: 'Name', field: 'Name'}]}
+            columns={[
+                {title: 'Name', field: 'name'},
+                {title: 'Email', field: 'email'},
+                {title: 'Phone', field: 'phone'}
+            ]}
             data={dataSource}
             options={{
                 showTitle: false,
@@ -31,14 +35,16 @@ const Table = (props) => {
                 onRowUpdate: (newData, oldData) =>
                     new Promise((resolve, reject) => {
                         setTimeout(() => {
-                            console.log('edit'); //todo: edit existing customer
+                            console.log('editing id: ' + oldData._id);
+                            updateCustomer(oldData._id, newData);
                             resolve();
                         }, 1000);
                     }),
                 onRowDelete: oldData =>
                     new Promise((resolve, reject) => {
                         setTimeout(() => {
-                            console.log('delete'); //todo: delete existing customer
+                            console.log('deleting id: ' + oldData._id);
+                            deleteCustomer(oldData._id);
                             resolve();
                         }, 1000);
                     })
@@ -69,8 +75,8 @@ const Table = (props) => {
     )
 };
 
-Table.propTypes = {
+CustomersDataTable.propTypes = {
     dataSource: PropTypes.arrayOf(Object).isRequired
 };
 
-export default Table
+export default CustomersDataTable

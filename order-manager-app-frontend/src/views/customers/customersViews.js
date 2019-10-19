@@ -9,27 +9,30 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import CustomersStyles from "./customersStyles";
 
 // Components
-import Table from '../../components/table/table';
+import CustomersDataTable from '../../components/customers/customersDataTable';
 import CustomersAddEditForm from "../../components/customers/customersAddEditForm";
-
-//TODO: get data with api call to external source
-const customerData = [
-    {Name: 'Richmond secondary'},
-    {Name: 'Windermere secondary'},
-    {Name: 'Grenfell elementary'}
-    ];
 
 class CustomersViews extends React.Component {
     render() {
-        const { classes, isOpenAddEditForm, toggleAddEditForm } = this.props;
+        const { classes, isOpenAddEditForm, toggleAddEditForm, customersData, createCustomer, deleteCustomer, updateCustomer } = this.props;
         return (
             <Card>
                 <CardHeader color="primary">
                     <h4 className={classes.cardTitleWhite}> Customers </h4>
                 </CardHeader>
                 <CardBody>
-                    <Table dataSource={customerData} toggleAddEditForm={toggleAddEditForm} isOpenAddEditForm={isOpenAddEditForm} />
-                    <CustomersAddEditForm isOpenAddEditForm={isOpenAddEditForm} toggleAddEditForm={toggleAddEditForm} />
+                    <CustomersDataTable
+                        dataSource={customersData}
+                        toggleAddEditForm={toggleAddEditForm}
+                        isOpenAddEditForm={isOpenAddEditForm}
+                        deleteCustomer={deleteCustomer}
+                        updateCustomer={updateCustomer}
+                    />
+                    <CustomersAddEditForm
+                        isOpenAddEditForm={isOpenAddEditForm}
+                        toggleAddEditForm={toggleAddEditForm}
+                        createCustomer={createCustomer}
+                    />
                 </CardBody>
                 <CardFooter>
 

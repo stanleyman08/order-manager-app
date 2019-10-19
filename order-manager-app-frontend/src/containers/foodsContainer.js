@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
+import React from "react";
+import {bindActionCreators} from "redux";
 
 import FoodsViews from '../views/foods/foodsViews';
 import {createFood, deleteFood, getAllFoods, getFoodsById, toggleAddEditForm, updateFood} from "../actions/foodsAction";
-import React from "react";
-import {bindActionCreators} from "redux";
 
 class FoodsContainer extends React.Component {
     componentDidMount(): void {

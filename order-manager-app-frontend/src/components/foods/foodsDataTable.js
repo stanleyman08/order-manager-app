@@ -27,7 +27,8 @@ const FoodsDataTable = (props) => {
                 {title: 'Dish Name', field: 'dishName'},
                 {title: 'Price(S)', field: 'priceSmall', cellStyle: {width: 20, maxWidth: 20}},
                 {title: 'Price(M)', field: 'priceMedium', cellStyle: {width: 20, maxWidth: 20}},
-                {title: 'Price(L)', field: 'priceLarge', cellStyle: {width: 20, maxWidth: 20}}]}
+                {title: 'Price(L)', field: 'priceLarge', cellStyle: {width: 20, maxWidth: 20}}
+            ]}
             data={dataSource}
             options={{
                 showTitle: false,

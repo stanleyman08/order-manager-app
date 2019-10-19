@@ -9,7 +9,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import FoodsStyles from "./foodsStyles";
 
 // Components
-import FoodsDataTable from "../../components/table/foodsDataTable";
+import FoodsDataTable from "../../components/foods/foodsDataTable";
 import FoodsAddEditForm from "../../components/foods/foodsAddEditForm";
 
 class FoodsViews extends React.Component {

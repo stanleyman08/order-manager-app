@@ -48,7 +48,6 @@ export function getFoodsById(id) {
 export function createFood(food) {
     return dispatch => {
         dispatch(postFoodsRequest());
-        console.log(food);
         Api.post('foods', food)
             .then(response => {
                 dispatch(postFoodsSuccess(response.data));

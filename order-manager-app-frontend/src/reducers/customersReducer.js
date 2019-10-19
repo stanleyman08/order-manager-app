@@ -1,7 +1,8 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    isOpenAddEditForm: false
+    isOpenAddEditForm: false,
+    customersData: []
 };
 
 export function CustomersReducer(state = initialState, action) {
@@ -11,6 +12,11 @@ export function CustomersReducer(state = initialState, action) {
                 ...state,
                 isOpenAddEditForm: action.payload
             };
+        case actionTypes.FETCH_CUSTOMERS_SUCCESS:
+            return {
+                ...state,
+                customersData: action.payload.data
+            }
         default:
             return state;
     }
