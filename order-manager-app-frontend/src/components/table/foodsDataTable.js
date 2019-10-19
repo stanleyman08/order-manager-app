@@ -18,11 +18,12 @@ import SortArrow from '@material-ui/icons/ArrowUpward';
 // import withStyles from "@material-ui/core/styles/withStyles";
 
 const FoodsDataTable = (props) => {
-    const { dataSource, isOpenAddEditForm, toggleAddEditForm } = props;
+    const { dataSource, isOpenAddEditForm, toggleAddEditForm, deleteFood, updateFood } = props;
     return (
         <MaterialTable
             columns={[
-                {title: 'Photo', field: 'imageUrl', render: rowData => <img src={rowData.imageUrl} alt={'imageUrl'} />},
+                //todo: add photo to data
+                // {title: 'Photo', field: 'imageUrl', render: rowData => <img src={rowData.imageUrl} alt={'imageUrl'} />},
                 {title: 'Dish Name', field: 'dishName'},
                 {title: 'Price(S)', field: 'priceSmall', cellStyle: {width: 20, maxWidth: 20}},
                 {title: 'Price(M)', field: 'priceMedium', cellStyle: {width: 20, maxWidth: 20}},
@@ -36,14 +37,16 @@ const FoodsDataTable = (props) => {
                 onRowUpdate: (newData, oldData) =>
                     new Promise((resolve, reject) => {
                         setTimeout(() => {
-                            console.log('edit'); //todo: edit existing customer
+                            console.log('editing id: ' + oldData._id);
+                            updateFood(oldData._id, newData);
                             resolve();
                         }, 1000);
                     }),
                 onRowDelete: oldData =>
                     new Promise((resolve, reject) => {
                         setTimeout(() => {
-                            console.log('delete'); //todo: delete existing customer
+                            console.log('deleting id: ' + oldData._id);
+                            deleteFood(oldData._id);
                             resolve();
                         }, 1000);
                     })

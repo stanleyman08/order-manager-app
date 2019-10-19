@@ -6,15 +6,17 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
 import TextField from "@material-ui/core/TextField";
-import Button from "../CustomButtons/Button";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import Button from "@material-ui/core/Button";
 
+import withStyles from "@material-ui/core/styles/withStyles";
+import FoodsAddEditFormStyles from "./foodsAddEditFormStyles";
 
 //Todo: OrdersAddEditForm
 class FoodsAddEditForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            photo: '',
             dishName: '',
             priceSmall: '',
             priceMedium: '',
@@ -22,13 +24,26 @@ class FoodsAddEditForm extends React.Component {
         }
     }
 
-    handleChange = e => {
-        this.setState({[e.target.name]: e.target.value });
+    handleChange = (e) => {
+        //todo: add photoUrl
+        if (e.currentTarget.files) {
+            // photo selected
+            console.log(e.currentTarget.files[0]);
+        } else {
+            this.setState({[e.target.id]: e.target.value });
+        }
+    };
+
+    handleCreateFood = e => {
+        const { createFood, toggleAddEditForm, isOpenAddEditForm } = this.props;
+        const { dishName, priceSmall, priceMedium, priceLarge } = this.state;
+        console.log("Creating food...");
+        createFood({dishName, priceSmall, priceMedium, priceLarge});
+        toggleAddEditForm(isOpenAddEditForm);
     };
 
     render() {
-        const { isOpenAddEditForm, toggleAddEditForm } = this.props;
-        const { photo, dishName, priceSmall, priceMedium, priceLarge } = this.state;
+        const { classes, isOpenAddEditForm, toggleAddEditForm } = this.props;
         return (
             <Dialog
                 open={isOpenAddEditForm}
@@ -36,18 +51,6 @@ class FoodsAddEditForm extends React.Component {
                 aria-labelledby="form-dialog-title"
             >
                 <DialogTitle id="form-dialog-title">Add Food</DialogTitle>
-                {/*<DialogContent>*/}
-                {/*    <TextField*/}
-                {/*        autoFocus*/}
-                {/*        margin="dense"*/}
-                {/*        id="photo"*/}
-                {/*        onChange={this.handleChange}*/}
-                {/*        label="Photo"*/}
-                {/*        type="text"*/}
-                {/*        fullWidth*/}
-                {/*        required*/}
-                {/*    />*/}
-                {/*</DialogContent>*/}
                 <DialogContent>
                     <TextField
                         autoFocus
@@ -96,9 +99,27 @@ class FoodsAddEditForm extends React.Component {
                         required
                     />
                 </DialogContent>
+                <input
+                    accept="image/*"
+                    id="contained-button-file"
+                    multiple
+                    className={classes.input}
+                    type="file"
+                    onChange={this.handleChange}
+                />
+                <label htmlFor="contained-button-file">
+                    <Button
+                        component="span"
+                        variant="contained"
+                        color="default"
+                        startIcon={<CloudUploadIcon/>}
+                    >
+                        Upload food photo
+                    </Button>
+                </label>
                 <DialogActions>
-                    <Button>Cancel</Button>
-                    <Button color="primary">
+                    <Button onClick={toggleAddEditForm}>Cancel</Button>
+                    <Button color="primary" onClick={this.handleCreateFood}>
                         Add
                     </Button>
                 </DialogActions>
@@ -107,4 +128,4 @@ class FoodsAddEditForm extends React.Component {
     }
 };
 
-export default FoodsAddEditForm
+export default withStyles(FoodsAddEditFormStyles)(FoodsAddEditForm)

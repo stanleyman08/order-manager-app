@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import FoodsViews from '../views/foods/foodsViews';
-import {getAllFoods, toggleAddEditForm} from "../actions/foodsAction";
+import {createFood, deleteFood, getAllFoods, getFoodsById, toggleAddEditForm, updateFood} from "../actions/foodsAction";
 import React from "react";
 import {bindActionCreators} from "redux";
 
@@ -12,19 +12,29 @@ class FoodsContainer extends React.Component {
 
     render() {
         return (
-            <FoodsViews toggleAddEditForm={this.props.toggleAddEditForm} isOpenAddEditForm={this.props.isOpenAddEditForm}/>
+            <FoodsViews
+                toggleAddEditForm={this.props.toggleAddEditForm}
+                isOpenAddEditForm={this.props.isOpenAddEditForm}
+                createFood={this.props.createFood}
+                deleteFood={this.props.deleteFood}
+                updateFood={this.props.updateFood}
+                foodsData={this.props.foodsData}
+            />
         )
     }
 }
 
 const mapStateToProps = state => ({
-    isOpenAddEditForm: state.FoodsReducer.isOpenAddEditForm
+    isOpenAddEditForm: state.FoodsReducer.isOpenAddEditForm,
+    foodsData: state.FoodsReducer.foodsData
 });
 
-const mapDispatchToProps = dispatch => ({
-    toggleAddEditForm: bindActionCreators(toggleAddEditForm, dispatch),
-    getAllFoods: bindActionCreators(getAllFoods, dispatch)
-});
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators(
+        {toggleAddEditForm, getAllFoods, getFoodsById, createFood, deleteFood, updateFood},
+        dispatch
+    )
+};
 
 export default connect(
     mapStateToProps,
