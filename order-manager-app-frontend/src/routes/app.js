@@ -3,12 +3,14 @@ import OrdersContainer from '../containers/ordersContainer';
 import CustomersContainer from '../containers/customersContainer';
 import FoodsContainer from '../containers/foodsContainer';
 import WeeklyMenusContainer from '../containers/weeklyMenusContainer';
+import SchoolsContainer from '../containers/schoolsContainer';
 
 import HomeIcon from '@material-ui/icons/Home';
 import CustomerIcon from '@material-ui/icons/People';
 import OrderIcon from '@material-ui/icons/Work';
 import FoodsIcon from '@material-ui/icons/RestaurantMenu';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
+import SchoolsIcon from '@material-ui/icons/School';
 
 const appRoutes = [
     {
@@ -40,6 +42,12 @@ const appRoutes = [
         icon: FoodsIcon,
         sidebarName: 'Foods',
         component: FoodsContainer
+    },
+    {
+        path: '/app/schools',
+        icon: SchoolsIcon,
+        sidebarName: 'Schools',
+        component: SchoolsContainer
     },
     { redirect: true, path: '/', to: '/app/home', sidebarName: 'Redirect' }
 ];

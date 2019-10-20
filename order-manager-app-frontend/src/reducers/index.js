@@ -6,6 +6,7 @@ import { CustomersReducer } from './customersReducer';
 import { OrdersReducer } from './ordersReducer';
 import { FoodsReducer} from "./foodsReducer";
 import { WeeklyMenusReducer } from "./weeklyMenusReducer";
+import { SchoolsReducer } from "./schoolsReducer";
 
 export default function createRootReducer(history: History) {
     return combineReducers({
@@ -13,6 +14,7 @@ export default function createRootReducer(history: History) {
         CustomersReducer,
         OrdersReducer,
         FoodsReducer,
-        WeeklyMenusReducer
+        WeeklyMenusReducer,
+        SchoolsReducer
     });
 }
