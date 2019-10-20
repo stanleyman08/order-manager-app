@@ -1,5 +1,3 @@
-import Food from "../../models/food";
-
 import request from 'supertest';
 import app from '../../app';
 import mongoose from 'mongoose';
@@ -64,7 +62,7 @@ describe('POST /api/customers/', () => {
    it('should create customer successfully', async () => {
        const res = await request(app)
            .post('/api/customers/')
-           .send({"name": "ainsley chen", "email": "ainsleychen@hotmail.com", "phone": "123456"})
+           .send({"name": "ainsley chen", "email": "ainsleychen@hotmail.com", "phone": "123456"});
        expect(res.statusCode).toEqual(201);
        expect(res.body.status).toEqual(STATUS_SUCCESS);
        expect(res.body.error).toEqual(null);
@@ -243,7 +241,7 @@ describe('DELETE /api/customers/:id', () => {
            .send({"name": "ainsley chen"});
        expect(res.statusCode).toEqual(201);
 
-       const customerId = 123
+       const customerId = 123;
        const res2 = await request(app)
            .del('/api/customers/' + customerId);
        expect(res2.statusCode).toEqual(404);
