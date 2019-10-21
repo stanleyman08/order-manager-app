@@ -14,7 +14,7 @@ import SchoolsAddEditForm from "../../components/schools/schoolsAddEditForm";
 
 class SchoolsViews extends React.Component {
     render() {
-        const { classes, isOpenAddEditForm, toggleAddEditForm } = this.props;
+        const { classes, isOpenAddEditForm, toggleAddEditForm, schoolsData, deleteSchool, updateSchool, createSchool } = this.props;
         return (
             <Card>
                 <CardHeader color="primary">
@@ -22,12 +22,16 @@ class SchoolsViews extends React.Component {
                 </CardHeader>
                 <CardBody>
                     <SchoolsDataTable
+                        dataSource={schoolsData}
                         isOpenAddEditForm={isOpenAddEditForm}
                         toggleAddEditForm={toggleAddEditForm}
+                        deleteSchool={deleteSchool}
+                        updateSchool={updateSchool}
                     />
                     <SchoolsAddEditForm
                         isOpenAddEditForm={isOpenAddEditForm}
                         toggleAddEditForm={toggleAddEditForm}
+                        createSchool={createSchool}
                     />
                 </CardBody>
                 <CardFooter>

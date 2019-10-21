@@ -1,7 +1,8 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    isOpenAddEditForm: false
+    isOpenAddEditForm: false,
+    schoolsData: []
 };
 
 export function SchoolsReducer(state = initialState, action) {
@@ -10,6 +11,11 @@ export function SchoolsReducer(state = initialState, action) {
             return {
                 ...state,
                 isOpenAddEditForm: action.payload
+            };
+        case actionTypes.FETCH_SCHOOLS_SUCCESS:
+            return {
+                ...state,
+                schoolsData: action.payload.data
             };
         default:
             return state;

@@ -35,7 +35,7 @@ export function getAllFoods() {
 export function getFoodsById(id) {
     return dispatch => {
         dispatch(getFoodsRequest());
-        Api.get('foods/' + id,)
+        Api.get('foods/' + id)
             .then(response => {
                 dispatch(getFoodsSuccess(response.data));
             })

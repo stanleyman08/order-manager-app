@@ -23,14 +23,13 @@ class SchoolsAddEditForm extends React.Component {
         this.setState({name: e.target.value})
     };
 
-    //
-    // handleCreateFood = e => {
-    //     const { createFood, toggleAddEditForm, isOpenAddEditForm } = this.props;
-    //     const { dishName, priceSmall, priceMedium, priceLarge } = this.state;
-    //     console.log("Creating food...");
-    //     createFood({dishName, priceSmall, priceMedium, priceLarge});
-    //     toggleAddEditForm(isOpenAddEditForm);
-    // };
+    handleCreateSchool = e => {
+        const { createSchool, toggleAddEditForm, isOpenAddEditForm } = this.props;
+        const { name } = this.state;
+        console.log("Creating school...");
+        createSchool({name});
+        toggleAddEditForm(isOpenAddEditForm);
+    };
 
     render() {
         const { classes, isOpenAddEditForm, toggleAddEditForm } = this.props;
@@ -55,7 +54,7 @@ class SchoolsAddEditForm extends React.Component {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={toggleAddEditForm}>Cancel</Button>
-                    <Button color="primary">
+                    <Button color="primary" onClick={this.handleCreateSchool}>
                         Add
                     </Button>
                 </DialogActions>

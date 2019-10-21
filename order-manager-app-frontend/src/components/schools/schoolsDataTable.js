@@ -18,12 +18,10 @@ import SortArrow from '@material-ui/icons/ArrowUpward';
 // import withStyles from "@material-ui/core/styles/withStyles";
 
 const SchoolsDataTable = (props) => {
-    const { dataSource, isOpenAddEditForm, toggleAddEditForm } = props;
+    const { dataSource, isOpenAddEditForm, toggleAddEditForm, updateSchool, deleteSchool } = props;
     return (
         <MaterialTable
             columns={[
-                //todo: add photo to data
-                // {title: 'Photo', field: 'imageUrl', render: rowData => <img src={rowData.imageUrl} alt={'imageUrl'} />},
                 {title: 'School Name', field: 'name'},
             ]}
             data={dataSource}
@@ -35,16 +33,16 @@ const SchoolsDataTable = (props) => {
                 onRowUpdate: (newData, oldData) =>
                     new Promise((resolve, reject) => {
                         setTimeout(() => {
-                            // console.log('editing id: ' + oldData._id);
-                            // updateFood(oldData._id, newData);
+                            console.log('editing id: ' + oldData._id);
+                            updateSchool(oldData._id, newData);
                             resolve();
                         }, 1000);
                     }),
                 onRowDelete: oldData =>
                     new Promise((resolve, reject) => {
                         setTimeout(() => {
-                            // console.log('deleting id: ' + oldData._id);
-                            // deleteFood(oldData._id);
+                            console.log('deleting id: ' + oldData._id);
+                            deleteSchool(oldData._id);
                             resolve();
                         }, 1000);
                     })
