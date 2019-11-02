@@ -36,7 +36,6 @@ class App extends React.Component {
 
     handleDrawerToggle = () => {
         this.setState({ navDrawerOpen: !this.state.navDrawerOpen });
-        console.log("toggle drawer:" + this.state.navDrawerOpen);
     };
 
     render() {

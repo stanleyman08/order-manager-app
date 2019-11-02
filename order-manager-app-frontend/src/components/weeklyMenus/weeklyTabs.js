@@ -7,10 +7,11 @@ import Tab from "@material-ui/core/Tab";
 import TabPanel from "./tabPanel";
 import AddIcon from '@material-ui/icons/Add';
 import IconButton from "@material-ui/core/IconButton";
+import Fab from "@material-ui/core/Fab";
+import Zoom from "@material-ui/core/Zoom";
+import withStyles from "@material-ui/core/styles/withStyles";
+import WeeklyTabsStyles from "./weeklyTabsStyles";
 
-const testData = [
-
-];
 class WeeklyTabs extends React.Component {
 
     constructor(props) {
@@ -37,27 +38,54 @@ class WeeklyTabs extends React.Component {
     };
 
     render () {
+        const { classes } = this.props;
         const { currentTabIndex } = this.state;
+        const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         return (
             <Paper >
                 <Tabs value={currentTabIndex} onChange={this.toggleWeeklyTabs} indicatorColor="primary" textColor="primary">
-                    <Tab label="Sunday" {...this.a11yProps(0)} />
-                    <Tab label="Monday" {...this.a11yProps(1)}/>
-                    <Tab label="Tuesday" {...this.a11yProps(2)}/>
-                    <Tab label="Wednesday" {...this.a11yProps(3)} />
-                    <Tab label="Thursday" {...this.a11yProps(4)} />
-                    <Tab label="Friday" {...this.a11yProps(5)} />
-                    <Tab label="Saturday" {...this.a11yProps(6)} />
-                    {/*<IconButton onClick={this.toggleAddEditForm}>*/}
-                    {/*    <AddIcon/>*/}
-                    {/*</IconButton>*/}
+                    {days.map((day, index) => {
+                        return <Tab key={index} label={day} {...this.a11yProps(index)} />
+                    })}
                 </Tabs>
-                <TabPanel>
-                    Item one
+                <TabPanel value={currentTabIndex} index={0}>
+                    Sunday
                 </TabPanel>
+                <TabPanel value={currentTabIndex} index={1}>
+                    Monday
+                </TabPanel>
+                <TabPanel value={currentTabIndex} index={2}>
+                    Tuesday
+                </TabPanel>
+                <TabPanel value={currentTabIndex} index={3}>
+                    Wednesday
+                </TabPanel>
+                <TabPanel value={currentTabIndex} index={4}>
+                    Thursday
+                </TabPanel>
+                <TabPanel value={currentTabIndex} index={5}>
+                    Friday
+                </TabPanel>
+                <TabPanel value={currentTabIndex} index={6}>
+                    Saturday
+                </TabPanel>
+                {days.map((day, index) => {
+                    return (
+                        <Zoom
+                            key={index}
+                            in={currentTabIndex === index}
+                            timeout={classes.transitionDelay}
+                            unmountOnExit
+                        >
+                            <Fab className={classes.fab} color="primary" onClick={this.toggleAddEditForm} >
+                                <AddIcon />
+                            </Fab>
+                        </Zoom>
+                    )
+                })}
             </Paper>
         )
     }
 }
 
-export default WeeklyTabs
+export default withStyles(WeeklyTabsStyles)(WeeklyTabs)

@@ -15,7 +15,7 @@ import WeeklyDatePicker from "../../components/dateTimePicker/weeklyDatePicker";
 
 class WeeklyMenusViews extends React.Component {
     render() {
-        const { classes, toggleAddEditForm, isOpenAddEditForm } = this.props;
+        const { classes, toggleAddEditForm, isOpenAddEditForm, foodsData } = this.props;
         return (
             <Card>
                 <CardHeader color="primary">
@@ -24,7 +24,11 @@ class WeeklyMenusViews extends React.Component {
                 <CardBody>
                     <WeeklyDatePicker />
                     <WeeklyTabs toggleAddEditForm={toggleAddEditForm} isOpenAddEditForm={isOpenAddEditForm} />
-                    <WeeklyMenusAddEditForm toggleAddEditForm={toggleAddEditForm} isOpenAddEditForm={isOpenAddEditForm} />
+                    <WeeklyMenusAddEditForm
+                        toggleAddEditForm={toggleAddEditForm}
+                        isOpenAddEditForm={isOpenAddEditForm}
+                        foodsData={foodsData}
+                    />
                 </CardBody>
                 <CardFooter>
 

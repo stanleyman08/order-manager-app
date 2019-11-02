@@ -1,7 +1,16 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    isOpenAddEditForm: false
+    isOpenAddEditForm: false,
+    weeklyMenusData: [
+        {day: 'monday', menu: []},
+        {day: 'tuesday', menu: []},
+        {day: 'wednesday', menu: []},
+        {day: 'thursday', menu: []},
+        {day: 'friday', menu: []},
+        {day: 'saturday', menu: []},
+        {day: 'sunday', menu: []}
+    ]
 };
 
 export function WeeklyMenusReducer(state = initialState, action) {
