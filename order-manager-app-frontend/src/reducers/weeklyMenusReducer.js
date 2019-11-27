@@ -2,6 +2,7 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     isOpenAddEditForm: false,
+    menuDate: new Date(),
     weeklyMenusData: [
         {day: 'monday', menu: []},
         {day: 'tuesday', menu: []},
@@ -19,6 +20,11 @@ export function WeeklyMenusReducer(state = initialState, action) {
             return {
                 ...state,
                 isOpenAddEditForm: action.payload
+            };
+        case actionTypes.SET_WEEKLY_MENUS_DATE:
+            return {
+                ...state,
+                menuDate: action.payload
             };
         default:
             return state;

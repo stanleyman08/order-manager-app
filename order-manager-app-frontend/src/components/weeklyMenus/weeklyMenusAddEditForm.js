@@ -9,10 +9,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
 import {DialogContentText} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
-
-// Components
-import FoodDetailTooltip from "../tooltips/foodDetailTooltip";
-import Tooltip from "@material-ui/core/Tooltip";
+import {toggleAddEditForm} from "../../actions/foodsAction";
 
 //Todo: WeeklyMenusAddEditForm
 class WeeklyMenusAddEditForm extends React.Component {
@@ -31,13 +28,6 @@ class WeeklyMenusAddEditForm extends React.Component {
         }
     }
 
-    optionComponent = (props) => {
-    };
-
-    handleCreateWeeklyMenu = () => {
-
-    };
-
     //todo: might refactor this into redux
     handleChange = (value, e) => {
         const index = _.findIndex(this.state.weeklyMenu, {day: e.name});
@@ -50,11 +40,30 @@ class WeeklyMenusAddEditForm extends React.Component {
         });
     };
 
-    render() {
-        const { isOpenAddEditForm, toggleAddEditForm, foodsData } = this.props;
+    handleCreateWeeklyMenu = () => {
+        const {weeklyMenu} = this.state;
+        const {
+            toggleAddEditForm,
+            isOpenAddEditForm,
+            createWeeklyMenu,
+            menuDate
+        } = this.props;
+        console.log(weeklyMenu);
+        //createWeeklyMenu requires a date, and FoodId
+        //convert weeklyMenu to an object that createWeeklyMenu can handle
+        createWeeklyMenu(weeklyMenu);
+        toggleAddEditForm(isOpenAddEditForm);
+    };
 
+    render() {
+        const {
+            isOpenAddEditForm,
+            toggleAddEditForm,
+            foodsData,
+            menuDate
+        } = this.props;
         const convertToSelectList = (food) => {
-            return {value: food.dishName, label: food.dishName};
+            return {value: food.dishName, label: food.dishName, foodId: food._id};
         };
         const foodsList = _.map(foodsData, convertToSelectList);
 
@@ -68,25 +77,13 @@ class WeeklyMenusAddEditForm extends React.Component {
             )
         };
 
-        // const Option = React.forwardRef((props, ref) => {
-        //     return (
-        //         <Tooltip title="testing">
-        //             <div ref={ref}>
-        //                 <components.Option {...props}>
-        //                     <div>{props.data.value}</div>
-        //                 </components.Option>
-        //             </div>
-        //         </Tooltip>
-        //     )
-        // });
-
         return (
             <Dialog
                 open={isOpenAddEditForm}
                 onClose={toggleAddEditForm}
                 aria-labelledby="form-dialog-title"
             >
-                <DialogTitle id="form-dialog-title">Add Weekly Menu</DialogTitle>
+                <DialogTitle id="form-dialog-title">Add Weekly Menu {menuDate.toString()}</DialogTitle>
                 <DialogContent>
                     {this.state.weeklyMenu.map((day, index) => {
                         return (
@@ -112,7 +109,7 @@ class WeeklyMenusAddEditForm extends React.Component {
                 </DialogContent>
                 <DialogActions>
                     {/*<Button onClick={this.handleCancel}>Cancel</Button>*/}
-                    <Button color="primary">
+                    <Button color="primary" onClick={this.handleCreateWeeklyMenu}>
                         Add
                     </Button>
                 </DialogActions>

@@ -8,7 +8,8 @@ export const connectDB = async () => {
         MONGO_URL,
       {
         useNewUrlParser: true,
-        useFindAndModify: false
+        useFindAndModify: false,
+        useCreateIndex: true
       }
     );
 

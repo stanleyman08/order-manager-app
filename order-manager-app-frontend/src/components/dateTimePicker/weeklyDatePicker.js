@@ -23,6 +23,19 @@ class WeeklyDatePicker extends React.Component {
         }
     }
 
+    componentDidMount() {
+        const { setWeeklyMenusDate } = this.props;
+        const startOfWeekDay = startOfWeek(makeJSDateObject(this.state.selectedDate));
+        setWeeklyMenusDate(startOfWeekDay);
+    };
+
+    componentDidUpdate(prevProps, prevState) {
+        const { setWeeklyMenusDate } = this.props;
+        if (prevState.selectedDate !== this.state.selectedDate) {
+            setWeeklyMenusDate(this.state.selectedDate);
+        }
+    };
+
     handleWeekChange = date => {
         this.setState({ selectedDate: startOfWeek(makeJSDateObject(date)) });
     };
