@@ -54,10 +54,10 @@ export function getWeeklyMenusByDate(menuDate) {
     return dispatch => {
         dispatch(getWeeklyMenusRequest());
         console.log(menuDate);
-        Api.get('weeklyMenus/', {menuDate: menuDate})
+        Api.get('weeklyMenus', {params: {menuDate: menuDate}})
             .then(response => {
                 console.log(response.data);
-                dispatch(getWeeklyMenusSuccess(response.data));
+                dispatch(getWeeklyMenusSuccess(response.data.data));
             })
             .catch(error => {
                 dispatch(getWeeklyMenusFail());
@@ -68,6 +68,7 @@ export function getWeeklyMenusByDate(menuDate) {
 export function createWeeklyMenu(weeklyMenu) {
     return dispatch => {
         dispatch(postWeeklyMenusRequest());
+        console.log(weeklyMenu);
         Api.post('weeklyMenus', weeklyMenu)
             .then(response => {
                 dispatch(postWeeklyMenusSuccess(response.data));

@@ -15,6 +15,9 @@ import WeeklyMenusViews from "../views/weeklyMenus/weeklyMenusViews";
 class WeeklyMenusContainer extends React.Component {
     componentDidMount(): void {
         this.props.getAllFoods();
+        // console.log(this.props.getWeeklyMenusByDate);
+        // this.props.getWeeklyMenusByDate(this.props.menuDate.toISOString());
+        // console.log(this.props.menuDate.toISOString());
     }
 
     render() {

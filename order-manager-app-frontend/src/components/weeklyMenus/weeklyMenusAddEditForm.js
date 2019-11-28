@@ -49,9 +49,18 @@ class WeeklyMenusAddEditForm extends React.Component {
             menuDate
         } = this.props;
         console.log(weeklyMenu);
-        //createWeeklyMenu requires a date, and FoodId
+
         //convert weeklyMenu to an object that createWeeklyMenu can handle
-        createWeeklyMenu(weeklyMenu);
+        // example: {menuDate: date, "monday": [foodId]}
+        let weeklyMenuObj = {menuDate: menuDate.toISOString()};
+        weeklyMenu.forEach(menu => {
+            weeklyMenuObj[menu.day] = _.map(menu.menu, (food) => {
+                return food.foodId;
+            });
+        });
+
+        // Need to check if menuDate is unique
+        createWeeklyMenu(weeklyMenuObj);
         toggleAddEditForm(isOpenAddEditForm);
     };
 

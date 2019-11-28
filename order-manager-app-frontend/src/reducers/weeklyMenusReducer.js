@@ -26,6 +26,11 @@ export function WeeklyMenusReducer(state = initialState, action) {
                 ...state,
                 menuDate: action.payload
             };
+        case actionTypes.FETCH_WEEKLY_MENUS_SUCCESS:
+            return {
+                ...state,
+                weeklyMenusData: action.payload
+            };
         default:
             return state;
     }

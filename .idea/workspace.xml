@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="24bc64f3-9ce7-4735-a14e-20b6e1d7ef39" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/order-manager-app-server/src/models/weeklyMenu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-manager-app-server/src/routes/api/weeklyMenus.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-manager-app-server/src/tests/api/weeklyMenus.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/order-manager-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/order-manager-app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager-app-server/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager-app-server/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-manager-app-server/src/config/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager-app-server/src/config/db.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-manager-app-server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager-app-server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-manager-app-server/src/routes/api/weeklyMenus.js" beforeDir="false" afterPath="$PROJECT_DIR$/order-manager-app-server/src/routes/api/weeklyMenus.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,21 +71,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.GET /api/weeklyMenus/:menuDate.should not return weeklyMenu by date because date is wrong">
-    <configuration name="DELETE /api/weeklyMenus/:id.should not delete when id not found" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/order-manager-app-server/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/order-manager-app-server" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/order-manager-app-server/src/tests/api/weeklyMenus.test.js" />
-      <test-names>
-        <test-name value="DELETE /api/weeklyMenus/:id" />
-        <test-name value="should not delete when id not found" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="npm.backend-start-dev">
     <configuration name="GET /api/weeklyMenus/:date.should return weeklyMenu by date" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -145,6 +127,20 @@
       </test-names>
       <method v="2" />
     </configuration>
+    <configuration name="POST /api/weeklyMenus/.should create weeklyMenu successfully" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/order-manager-app-server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/order-manager-app-server" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/order-manager-app-server/src/tests/api/weeklyMenus.test.js" />
+      <test-names>
+        <test-name value="POST /api/weeklyMenus/" />
+        <test-name value="should create weeklyMenu successfully" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/order-manager-app-frontend/package.json" />
       <command value="start" />
@@ -188,18 +184,18 @@
       <item itemvalue="npm.backend-start-dev" />
       <item itemvalue="npm.backend-start-test" />
       <item itemvalue="Jest.GET /api/weeklyMenus/:date.should return weeklyMenu by date" />
-      <item itemvalue="Jest.DELETE /api/weeklyMenus/:id.should not delete when id not found" />
       <item itemvalue="Jest.GET /api/weeklyMenus/:menuDate.should return weeklyMenu by date" />
       <item itemvalue="Jest.GET /api/weeklyMenus/:menuDate" />
       <item itemvalue="Jest.GET /api/weeklyMenus/:menuDate.should not return weeklyMenu by date because date is wrong" />
+      <item itemvalue="Jest.POST /api/weeklyMenus/.should create weeklyMenu successfully" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.GET /api/weeklyMenus/:menuDate.should not return weeklyMenu by date because date is wrong" />
+        <item itemvalue="Jest.POST /api/weeklyMenus/.should create weeklyMenu successfully" />
         <item itemvalue="Jest.GET /api/weeklyMenus/:menuDate.should return weeklyMenu by date" />
+        <item itemvalue="Jest.GET /api/weeklyMenus/:menuDate.should not return weeklyMenu by date because date is wrong" />
         <item itemvalue="Jest.GET /api/weeklyMenus/:menuDate" />
         <item itemvalue="Jest.GET /api/weeklyMenus/:date.should return weeklyMenu by date" />
-        <item itemvalue="Jest.DELETE /api/weeklyMenus/:id.should not delete when id not found" />
       </list>
     </recent_temporary>
   </component>
@@ -222,7 +218,7 @@
       <workItem from="1569826927609" duration="47968000" />
       <workItem from="1571196227813" duration="53771000" />
       <workItem from="1572564959484" duration="43405000" />
-      <workItem from="1574231255559" duration="16413000" />
+      <workItem from="1574231255559" duration="28590000" />
     </task>
     <servers />
   </component>

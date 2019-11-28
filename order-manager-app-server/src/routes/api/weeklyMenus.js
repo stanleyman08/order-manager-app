@@ -3,6 +3,7 @@ import {check, validationResult} from "express-validator";
 const router = express.Router();
 
 import WeeklyMenu from "../../models/weeklyMenu";
+import Food from "../../models/food";
 
 // Constants
 import {STATUS_SUCCESS, STATUS_FAIL} from "../../commons/constants";
@@ -13,9 +14,13 @@ import {STATUS_SUCCESS, STATUS_FAIL} from "../../commons/constants";
 router.get('/', (req, res) => {
     if (req.query.menuDate) {
         WeeklyMenu.findOne({ menuDate: req.query.menuDate })
-            .then(weeklyMenu => res.status(200).json({
+            .then(weeklyMenu => {
+                // Convert all foodId in array to object
+                return getWeeklyMenuWithFoodObj(weeklyMenu)
+            })
+            .then(weeklyMenuWithFoodObj => res.status(200).json({
                 status: STATUS_SUCCESS,
-                data: weeklyMenu,
+                data: weeklyMenuWithFoodObj,
                 msg: null,
                 error: null
             }))
@@ -26,6 +31,7 @@ router.get('/', (req, res) => {
                 error: err
             }));
     } else {
+        //todo: Convert all foodId from weeklyMenus to foodObj
         WeeklyMenu.find()
             .then(weeklyMenus => {
                 res.status(200).json({
@@ -43,6 +49,32 @@ router.get('/', (req, res) => {
             }));
     }
 });
+
+// Helper function to convert weeklyMenu Obj to return food Obj instead of just the foodId
+async function getWeeklyMenuWithFoodObj(weeklyMenu) {
+    const daysKeyConstants = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+    const keys = Object.keys(weeklyMenu['_doc']);
+    for (const key of keys) {
+        // todo: Refactor to common library
+        if (daysKeyConstants.includes(key) &&
+            (Array.isArray(weeklyMenu['_doc'][key]) && weeklyMenu['_doc'][key].length > 0)) {
+            let foodObjArr = [];
+            for (const foodId of weeklyMenu['_doc'][key]) {
+                let foodObj = null;
+                await Food.findById(foodId)
+                    .then(food => {
+                        foodObj = food;
+                        foodObjArr.push(foodObj);
+                    })
+                    .catch(err => {
+                        console.error(err);
+                    });
+            }
+            weeklyMenu['_doc'][key] = foodObjArr;
+        }
+    }
+    return weeklyMenu;
+}
 
 // @route POST api/weeklyMenus
 // @description create weeklyMenus
